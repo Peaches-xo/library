@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="Books.js" defer></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="styling">
+        <h1>Read It?</h1>
+ <form action="" class="form">
+    <label for="title">Title: </label>
+    <input type="text" name="title" id="title">
+
+    <label for="author">Author</label>
+    <input type="text" name="author" id="author">
+
+    <label for="pages">No of pages</label>
+    <input type="number" min="0" name="pages" id="pages">
+
+    <fieldset>
+        <legend>Read?</legend>
+        <input type="radio" id="haveread" name="read"><label for="haveread">yes</label>
+        <input type="radio" id="notread" name="read"><label for="notread">no</label>
+    </fieldset>
+
+ </form>
+ <button id="add_btn">Add</button>
+
+<div class="shelf">
+    <div class="shelf_top"></div>
+    <div class="shelf_bottom"></div>
+</div>
+
+
+
+
+ <div class="display_div"></div>
+ <table>    
+    <thead>
+        <tr>
+            <th id="table_index">Index</th>
+            <th id="table_title">Title</th>
+            <th id="table_author">Author</th>
+            <th id="table_pages">Pages</th>
+            <th id="table_read">Read?</th>
+            <th id="table_delete">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+
+ </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --babyPink: #E5C1BD;
+    --blackCoffee: #2F242C;
+    --prussianBlue: #003952;
+    --cultured: #F2F6F7;
+    --cadet: #5E747F;
+
+    --darktan: #DAAA63; /* buttons */
+    --darkBrown: #2C1810; /* text  */
+    --bgTan: #F2E5D0; 
+    --lightTan: #F9F3EE;
+   
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Libre Franklin', sans-serif;
+    color: var(--darkBrown);
+}
+
+body{
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    background-color: var(--bgTan);
+}
+
+.styling{
+    background-color: var(--lightTan);
+    border-radius: 20px;
+    margin: 50px;
+    padding: 20px;
+    width: 80vw;
+    height: 90vh;
+    display: grid;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 8px 15px;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+h1{
+    font-size: 5rem;
+    width: 50px;
+    font-family: 'Libre Caslon Text', serif;
+    place-items: center;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+button, input, select, fieldset, label, textarea{
+    font-family: inherit;
+    font-size: 100%;
+    width: 300px;
+    margin: 0 auto;
+}
+
+input, fieldset{
+    border-radius: 8px;
+    border: solid 1px var(--blackCoffee);
+    padding: 5px;
+}
+
+
+.shelf{
+    height: 20px;
+    position: relative;
+    grid-area: 3/1;
+    /* grid-area: 3/ span 2 ; */
+}
+
+.shelf_top{
+    position: absolute;
+    border-bottom: 40px solid #EAE1D4; 
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    width: 900px;
+    left: -51px;
+    bottom: 5px;
+    z-index: 4;
+}
+
+.shelf_bottom{
+    position: absolute;
+    left: -50px;
+    bottom: -5px;
+    width: 900px;
+    height: 10px;
+    background-color: var(--lightTan);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -5px 40px 10px;
+    z-index: 3;
+}
+
+form{
+    width: 400px;
+    padding: 20px;
+    background-color: var(--lightTan);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+input[type="radio"]{
+    width: 50px;
+
+}
+
+button{
+    grid-area: 2/2;
+    padding: 10px;
+    width: 300px;
+    height: 50px;
+    border-radius: 8px;
+    border: solid 1px var(--darkBrown);
+}
+
+.display_div{
+    height: 30px;
+    grid-area: 2/1;
+    background-color: var(--lightTan);
+    color: black;
+    width: 400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+table {
+    /* background-color: rgba(255, 192, 203, 0.553); */
+    margin-top: 50px;
+    grid-area: 3/ span 2 ;
+    grid-area: 3/1/3/3;
+    background-color: var(--lightTan);
+    padding: 10px;
+}
+
+th{
+    font-weight: 400;
+    border: solid 1px var(--cadet);
+    padding: 10px;
+}
+
