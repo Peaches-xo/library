@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@500;600&display=swap');
 
 :root{
     --babyPink: #E5C1BD;
@@ -11,7 +11,6 @@
     --darkBrown: #2C1810; /* text  */
     --bgTan: #F2E5D0; 
     --lightTan: #F9F3EE;
-   
 }
 
 * {
@@ -19,6 +18,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--darkBrown);
 }
 
@@ -34,12 +34,10 @@ body{
     border-radius: 20px;
     margin: 50px;
     padding: 20px;
-    width: 80vw;
     height: 90vh;
     display: grid;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 8px 15px;
     grid-template-columns: repeat(2, 1fr);
-
 }
 
 h1{
@@ -56,20 +54,27 @@ button, input, select, fieldset, label, textarea{
     font-size: 100%;
     width: 300px;
     margin: 0 auto;
+    background-color: var(--lightTan);
 }
 
-input, fieldset{
+input{
     border-radius: 8px;
-    border: solid 1px var(--blackCoffee);
+    outline: solid 1px var(--blackCoffee);
+    border: transparent;
     padding: 5px;
 }
 
+fieldset{
+    border-radius: 8px;
+    padding: 5px;
+    border: solid 1px var(--blackCoffee);
+}
 
 .shelf{
     height: 20px;
     position: relative;
     grid-area: 3/1;
-    /* grid-area: 3/ span 2 ; */
+
 }
 
 .shelf_top{
@@ -97,7 +102,6 @@ input, fieldset{
 form{
     width: 400px;
     padding: 20px;
-    background-color: var(--lightTan);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -105,7 +109,7 @@ form{
 
 input[type="radio"]{
     width: 50px;
-
+    outline: none;
 }
 
 button{
@@ -114,8 +118,22 @@ button{
     width: 300px;
     height: 50px;
     border-radius: 8px;
-    border: solid 1px var(--darkBrown);
+    border:transparent;
+    outline: solid 1px var(--darkBrown);
 }
+
+    button:hover, input:hover{
+        outline: solid 1px var(--prussianBlue);
+        background-color: var(--cultured);
+    
+        box-shadow: rgba(209, 204, 204, 0.35) 0px 10px 20px 1px
+    }
+
+    input[type='radio']:hover, label[for="haveread"]:hover, label[for="notread"]:hover {
+        outline:none;
+        text-decoration: underline;
+
+    }
 
 .display_div{
     height: 30px;
@@ -136,9 +154,14 @@ table {
     padding: 10px;
 }
 
-th{
+th, tr, td{
     font-weight: 400;
     border: solid 1px var(--cadet);
     padding: 10px;
+ 
+}
+
+tr td img{
+    margin: auto;
 }
 
