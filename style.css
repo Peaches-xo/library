@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@500;600&display=swap');
 
 :root{
-    --babyPink: #E5C1BD;
+    --pink: #ECADCA;
+    --peach: #EED0CE;
+
     --blackCoffee: #2F242C;
     --prussianBlue: #003952;
-    --cultured: #F2F6F7;
+    --white: #F3F3F3;
     --cadet: #5E747F;
 
     --darktan: #DAAA63; /* buttons */
@@ -27,6 +29,9 @@ body{
     place-content: center;
     min-height: 100vh;
     background-color: var(--bgTan);
+    background-image: url("/images/bookicon3.svg");
+    background-size: 5%;
+
 }
 
 .styling{
@@ -60,15 +65,16 @@ button, input, select, fieldset, label, textarea{
 
 input{
     border-radius: 8px;
-    outline: solid 1px var(--blackCoffee);
+    outline: dashed 2px var(--blackCoffee);
     border: transparent;
     padding: 5px;
+
 }
 
 fieldset{
     border-radius: 8px;
     padding: 5px;
-    border: solid 1px var(--blackCoffee);
+    border: dashed 2px var(--blackCoffee);
 }
 
 .shelf{
@@ -111,6 +117,7 @@ form{
 input[type="radio"]{
     width: 50px;
     outline: none;
+    
 }
 #img_plant{
     /* POTPLANT 
@@ -132,44 +139,39 @@ button{
     height: 50px;
     border-radius: 8px;
     border:transparent;
-    outline: solid 1px var(--darkBrown);
+    outline: solid 2px var(--darkBrown);
     z-index: 10;
 }
 
-    button:hover, input:hover{
-        outline: solid 1px var(--prussianBlue);
-        background-color: var(--cultured);
-    
+    input:hover{
+        outline: dashed 2px var(--blackCoffee);
+        background-color: var(--peach);
         box-shadow: rgba(209, 204, 204, 0.35) 0px 10px 20px 1px
+    }
+
+    button:hover{
+        background-color: var(--pink);
     }
 
     input[type='radio']:hover, label[for="haveread"]:hover, label[for="notread"]:hover {
         outline:none;
         text-decoration: underline;
+        background-color: var(--peach);
+        
     }
 
 
 table {
     /* background-color: rgba(255, 192, 203, 0.553); */
     margin-top: 50px;
-   
     grid-area: 3/1/3/3;
     background-color: var(--lightTan);
-    
 }
 
 th, tr, td{
     font-weight: 400;
     border: solid 1px var(--cadet);
     padding: 10px;
-
- 
 }
 
-tr td img{
-    /* margin: auto; */
-}
 
-tbody tr {
-    height: 40px;
-}
