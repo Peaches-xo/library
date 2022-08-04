@@ -36,19 +36,17 @@ function Book(title, author, pages, read){
 Book.prototype.hasRead = function(){
     return (this.read? `have read` : `not read yet`);
 }
-Book.prototype.info = function(){
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.hasRead()}.`
-}
+// Book.prototype.info = function(){
+//     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.hasRead()}.`
+// }
 Book.prototype.createID = function(){
-    //finds objects place(index) in myLibrary array and returns it into data attribute property
-    console.log("books createID function called");
-   
-    
+    //finds objects place(index) in myLibrary array (MAYBE TO ADD -> returns it into data attribute property)
+    this.index = myLibrary.length - 1;  
 }
 
 function createBook(title, author, pages, read){
    //STEP 2 - create object
-    let book = Object.create(Book.prototype); 
+    let book = Object.create(Book.prototype);                                     
     book = new Book(title, author, pages, read); //better way to do this?
     //STEP 2 - pushes to array
     myLibrary.push(book);
@@ -74,7 +72,7 @@ function displayBook(){
 
             //create <th> with id of indexNo, textContent of index,  append to <tr> 
             let newTh = document.createElement('th');
-            newRow.setAttribute('id', `ID#${[myLibrary.length-1]}`);
+            newRow.setAttribute('id', `${[myLibrary.length-1]}`);
             newTh.textContent = `${[myLibrary.length-1]}`;
             newRow.appendChild(newTh);
             
@@ -111,13 +109,17 @@ function displayBook(){
                 trashcan.addEventListener("click", (e) => {
              
                     tbody.removeChild(newRow);
-                    deleteBook(newRow.id);
+                    deleteBook(newRow.id); //needs to change to book.index
+                    console.log(Book.createID);
+                    
                 });               
     }
 
 function deleteBook(id){
     console.log(id + " deleted");
     //remove from array
+    myLibrary.splice(id,1);
+    console.log(myLibrary);
 
 
 

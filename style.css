@@ -51,8 +51,8 @@ h1{
     width: 50px;
     font-family: 'Libre Caslon Text', serif;
     place-items: center;
-    margin-top: 100px;
-    margin-left: 100px;
+    margin-top: 90px;
+    margin-left: 90px;
 }
 
 button, input, select, fieldset, label, textarea{
@@ -120,17 +120,22 @@ input[type="radio"]{
     
 }
 #img_plant{
-    /* POTPLANT 
-    width: 30%;
     position: relative;
-    bottom: -40px;
-    filter: drop-shadow(-20px 1px 40px grey); */
-     
-    position: relative;
-    bottom: -80px;
-    left: 100px;
-    width: 50%;
+    bottom: -80px;  
+    width: 55%;
     z-index: 1;
+}
+
+#img_git{
+    width: 15%;
+    position: relative;
+    right: 30px;
+    top: 50px;
+    z-index: 10;
+}
+
+#img_git:hover{
+    filter: contrast(150%);
 }
 button{
     grid-area: 2/2;
@@ -157,12 +162,12 @@ button{
         outline:none;
         text-decoration: underline;
         background-color: var(--peach);
-        
+
     }
 
 
 table {
-    /* background-color: rgba(255, 192, 203, 0.553); */
+   
     margin-top: 50px;
     grid-area: 3/1/3/3;
     background-color: var(--lightTan);
