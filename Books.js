@@ -7,6 +7,8 @@ const authorInput = document.querySelector('#author');
 const pagesInput = document.querySelector('#pages');
 const radioButtons = document.querySelectorAll('input[name="read"]');
 
+let testDiv = document.querySelector('.test');
+
     let title,
     author,
     pages,
@@ -61,40 +63,51 @@ function clearInputs(){
     radioButtons.item(1).checked = false;
 }
 
+
+let tbody = document.querySelector('tbody');
+
 function displayBook(){
     //STEP 3 - loops through the array and displays each book on the page.
-
     
-        //create new <tr>, append to <tbody>
-        let newRow = document.createElement('tr');
-        let tbody = document.querySelector('tbody');
-        tbody.appendChild(newRow);
+    //if tbody has children, remove them. 
+    if (tbody.hasChildNodes){
+        while (tbody.firstChild) {
+            tbody.removeChild(tbody.firstChild);
+          }
+    }
 
-            //create <th> with id of indexNo, textContent of index,  append to <tr> 
-            let newTh = document.createElement('th');
-            newRow.setAttribute('id', `${[myLibrary.length-1]}`);
-            newTh.textContent = `${[myLibrary.length-1]}`;
-            newRow.appendChild(newTh);
-            
+    for(let i = 0; i < myLibrary.length; i++){
+
+         //create new <tr>, append to <tbody>
+         let newRow = document.createElement('tr');
+         tbody.appendChild(newRow);
+
+        //  let newTh = document.createElement('th');
+        //  newRow.setAttribute('id', `${[myLibrary.length-1]}`); //get index number from book object in array?
+        //  newTh.textContent = `${[myLibrary.length-1]}`;
+        //  newRow.appendChild(newTh);
+            // newTh.textContent = `${myLibrary[i].index}`;
+            // newRow.appendChild(newTh);
+
             //create <td> with headers of title & indexNo, textContent of title, append to <tr>
             let titleTd = document.createElement('td');
             titleTd.setAttribute('headers', 'title');
-            titleTd.textContent = `${title}`;
+            titleTd.textContent = `${myLibrary[i].title}`;
             newRow.appendChild(titleTd);
 
             let authorTd = document.createElement('td');
             authorTd.setAttribute('headers', 'author');
-            authorTd.textContent = `${author}`;
+            authorTd.textContent = `${myLibrary[i].author}`;
             newRow.appendChild(authorTd);
 
             let pagesTd = document.createElement('td');
             pagesTd.setAttribute('headers', 'pages');
-            pagesTd.textContent = `${pages}`;
+            pagesTd.textContent = `${myLibrary[i].pages}`;
             newRow.appendChild(pagesTd);
 
             let readTd = document.createElement('td');
             readTd.setAttribute('headers', 'read');
-            readTd.textContent = `${read}`; 
+            readTd.textContent = `${myLibrary[i].read}`; 
             newRow.appendChild(readTd);
 
             let deleteTd = document.createElement('td');
@@ -107,21 +120,22 @@ function displayBook(){
                 deleteTd.appendChild(trashcan);
                 newRow.appendChild(deleteTd);
                 trashcan.addEventListener("click", (e) => {
-             
                     tbody.removeChild(newRow);
-                    deleteBook(newRow.id); //needs to change to book.index
-                    console.log(Book.createID);
-                    
-                });               
+                    console.log(myLibrary[i].index);
+                    deleteBook(myLibrary[i].index); 
+                });  
     }
 
-function deleteBook(id){
+  
+}
+
+function deleteBook(id){ 
     console.log(id + " deleted");
     //remove from array
-    myLibrary.splice(id,1);
+    myLibrary.splice(id,1); 
+    //HOW TO to update indexes of book objects in array
     console.log(myLibrary);
-
-
 
 }
 
+//possibly remove index column from table as no need to show that. Will solve problem of having to refresh display after deletion of one book
