@@ -78,18 +78,16 @@ function displayBook(){
 
     for(let i = 0; i < myLibrary.length; i++){
 
-         //create new <tr>, append to <tbody>
-         let newRow = document.createElement('tr');
-         tbody.appendChild(newRow);
+        //create new <tr>, append to <tbody>
+        let newRow = document.createElement('tr');
+        tbody.appendChild(newRow);
 
-        //  let newTh = document.createElement('th');
-        //  newRow.setAttribute('id', `${[myLibrary.length-1]}`); //get index number from book object in array?
-        //  newTh.textContent = `${[myLibrary.length-1]}`;
-        //  newRow.appendChild(newTh);
-            // newTh.textContent = `${myLibrary[i].index}`;
-            // newRow.appendChild(newTh);
+        //add data-attribute to newRow that is the value of index
+        newRow.setAttribute('data-index', myLibrary[i].index);
+        console.log("newRow data-index: " + newRow.getAttribute('data-index'));
+ 
 
-            //create <td> with headers of title & indexNo, textContent of title, append to <tr>
+            //create <td> with headers & append to <tr>
             let titleTd = document.createElement('td');
             titleTd.setAttribute('headers', 'title');
             titleTd.textContent = `${myLibrary[i].title}`;
@@ -113,16 +111,19 @@ function displayBook(){
             let deleteTd = document.createElement('td');
             deleteTd.setAttribute('headers', 'delete');
 
-                //insert image 
-                let trashcan = document.createElement('img');
-                trashcan.setAttribute('src', '/images/trash-can.png');
+            //insert image 
+            let trashcan = document.createElement('img');
+            trashcan.setAttribute('src', '/images/trash-can.png');
+            deleteTd.appendChild(trashcan);
+            newRow.appendChild(deleteTd);
 
-                deleteTd.appendChild(trashcan);
-                newRow.appendChild(deleteTd);
                 trashcan.addEventListener("click", (e) => {
+                    
+                    // deleteBook(myLibrary[i].index); <-error when deleting last book
+                    
+                    deleteBook(newRow.getAttribute('data-index'));
                     tbody.removeChild(newRow);
-                    console.log(myLibrary[i].index);
-                    deleteBook(myLibrary[i].index); 
+                   
                 });  
     }
 
@@ -130,12 +131,18 @@ function displayBook(){
 }
 
 function deleteBook(id){ 
-    console.log(id + " deleted");
+    console.log("id/index:" + id + " deleted");
     //remove from array
-    myLibrary.splice(id,1); 
+
+        myLibrary.splice(id, 1); 
+    
     //HOW TO to update indexes of book objects in array
+    for(let i = 0; i<myLibrary.length; i++){
+        console.log(myLibrary[i].index);
+        myLibrary[i].index = i;
+        console.log(myLibrary[i].index);
+    }
     console.log(myLibrary);
 
 }
 
-//possibly remove index column from table as no need to show that. Will solve problem of having to refresh display after deletion of one book
