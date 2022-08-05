@@ -101,16 +101,15 @@ function displayBook(){
         let deleteTd = document.createElement('td');
         deleteTd.setAttribute('headers', 'delete');
 
-        //insert image  //<-CHANGE TO BUTTON?
         let trashcan = document.createElement('img');
         trashcan.setAttribute('src', '/images/trash-can.png');
         deleteTd.appendChild(trashcan);
         newRow.appendChild(deleteTd);
 
-        trashcan.addEventListener('click', () => {
-            tbody.removeChild(newRow);
-            deleteBook(i);
-        });  
+            trashcan.addEventListener('click', () => {
+                tbody.removeChild(newRow);
+                deleteBook(i);
+            });  
     }
 }
 
