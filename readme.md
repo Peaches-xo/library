@@ -1,6 +1,7 @@
 # library
 ## The Odin Project // Library app
 ---
+[View Deployment](https://peaches-xo.github.io/library/)
 ![library screenshot](/images/Screen%20Shot%202022-08-05%20at%2010.21.17%20am.png)
 
 ### **Goals** 
