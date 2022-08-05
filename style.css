@@ -68,7 +68,7 @@ input{
     outline: dashed 2px var(--blackCoffee);
     border: transparent;
     padding: 5px;
-
+    transition: 0.3s;
 }
 
 fieldset{
@@ -117,7 +117,7 @@ form{
 input[type="radio"]{
     width: 50px;
     outline: none;
-    
+    transition: 0.3s;
 }
 #img_plant{
     position: relative;
@@ -132,6 +132,7 @@ input[type="radio"]{
     right: 30px;
     top: 50px;
     z-index: 10;
+    transition: 0.3s;
 }
 
 #img_git:hover{
@@ -146,6 +147,7 @@ button{
     border:transparent;
     outline: solid 2px var(--darkBrown);
     z-index: 10;
+    transition: 0.3s;
 }
 
     input:hover{
