@@ -4,9 +4,8 @@
     --pink: #ECADCA;
     --peach: #EED0CE;
     --blackCoffee: #2F242C;
-
-    --darktan: #DAAA63; /* buttons */
-    --darkBrown: #2C1810; /* text  */
+    --darktan: #DAAA63; 
+    --darkBrown: #2C1810; 
     --bgTan: #F2E5D0; 
     --lightTan: #F9F3EE;
 }
@@ -25,7 +24,7 @@ body{
     place-content: center;
     min-height: 100vh;
     background-color: var(--bgTan);
-    background-image: url("/images/bookicon3.svg");
+    background-image: url("images/bookicon3.svg");
     background-size: 5%;
 }
 
