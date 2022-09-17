@@ -23,22 +23,36 @@ addBtn.addEventListener('click', function(){
     displayBook();
 });
 
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+// function Book(title, author, pages, read){ //ORIGINAL CONSTRUCTOR FUNCTION 
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// }
 
-Book.prototype.hasRead = function(){ 
-    // this.read ? this.read = false : this.read = true;
-    this.read = !this.read;
-}
+class Book { //REFACTOR TO USE CLASS AS PER TOP INSTRUCTION
+    // class methods
+    constructor(title, author, pages, read) {
+      this.title = title;
+      this.author = author;
+      this.pages = pages;
+      this.read = read;
+   }
+  
+    hasRead() { 
+      this.read = !this.read; 
+    }
+  };
+
+// Book.prototype.hasRead = function(){ //MOVED FROM PROTOTYPE INTO CLASS
+//     // this.read ? this.read = false : this.read = true;
+//     this.read = !this.read;
+// }
 
 function createBook(title, author, pages, read){
    //STEP 2 - create object & push to array
-    let book = Object.create(Book.prototype);                                     
-    book = new Book(title, author, pages, read); //<-better way to do this?
+    // let book = Object.create(Book.prototype);                           
+    book = new Book(title, author, pages, read); 
     myLibrary.push(book);
 }
 
