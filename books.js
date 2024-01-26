@@ -1,6 +1,7 @@
 // Library Project 
 
-const addBtn = document.querySelector('#add_btn');
+const addBtn = document.querySelector('#add_btn');  
+const clearBtn = document.querySelector('#clear_btn');
 const form = document.querySelector('.form');
 const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
@@ -10,7 +11,51 @@ const tbody = document.querySelector('tbody');
     let title,author,pages,read; 
     let myLibrary = [];
 
-addBtn.addEventListener('click', function(){
+
+//add listener on title input 
+//add validations for required
+
+clearBtn.addEventListener('click', clearInputs);
+
+titleInput.addEventListener('input', validateInput);
+authorInput.addEventListener('input', validateAuthor);
+
+function validateInput(e){
+  
+    if (titleInput.validity.valueMissing){
+        titleInput.setCustomValidity('Please enter a title for this book!');
+      } else {
+        titleInput.setCustomValidity("");
+      }
+}
+
+
+function validateAuthor(e){
+  
+    if (authorInput.validity.valueMissing){
+        authorInput.setCustomValidity('Please enter an author for this book!');
+      } else {
+        authorInput.setCustomValidity("");
+      }
+}
+
+//reusable function 
+const validateElement = (element) => {
+    if (element.validity.valueMissing){
+        element.setCustomValidity(`Please enter  `);
+    } else {
+        element.setCustomValidity('');
+    }
+}
+
+
+
+
+
+addBtn.addEventListener('click', function(e){
+   //if form is valid, proceed with adding book 
+if (form.checkValidity()){
+
     //When Add button is clicked, get values & put into variables
     title = titleInput.value;
     author = authorInput.value;
@@ -21,6 +66,13 @@ addBtn.addEventListener('click', function(){
     createBook(title, author, pages, read);
     clearInputs();
     displayBook();
+} else {
+    console.log('form not valid');
+    // validateInput();
+    // validateAuthor();
+    validateElement(titleInput);
+
+}
 });
 
 // function Book(title, author, pages, read){ //ORIGINAL CONSTRUCTOR FUNCTION 
@@ -130,5 +182,5 @@ function displayBook(){
 function deleteBook(index) {
     myLibrary.splice(index, 1);
     displayBook(); //rerender array on page
-    console.log(myLibrary);
+    // console.log(myLibrary);
 }

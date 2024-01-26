@@ -7,29 +7,33 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="books.js" defer></script>
 
-        <title>Document</title>
+        <title>Read It? Book Tracking App</title>
     </head>
     <body>
         <div class="styling">
                 <h1>Read It?</h1>
-                <form action="" class="form">
+                <form action="" class="form" id="form" >
                     <label for="title">Title: </label>
-                    <input type="text" name="title" id="title">
+                    <input type="text" name="title" id="title" required >
 
                     <label for="author">Author</label>
-                    <input type="text" name="author" id="author">
+                    <input type="text" name="author" id="author" required aria-required="true">
 
                     <label for="pages">No of pages</label>
-                    <input type="number" min="0" name="pages" id="pages">
+                    <input type="number" min="0" name="pages" id="pages" required aria-required="true">
 
-                    <fieldset>
+                    <fieldset required aria-required="true">
                         <legend>Read?</legend>
-                        <input type="radio" id="haveread" name="read" value="haveread"><label for="haveread">yes</label>
+                        <input type="radio" id="haveread" name="read" value="haveread" required ><label for="haveread">yes</label>
                         <input type="radio" id="notread" name="read" value="notread"><label for="notread">no</label>
                     </fieldset>
+                    <div class="wrapper">
+                        <button type="submit" id="add_btn" form="form">Add +</button>
+                        <button id="clear_btn" form="form">Clear</button>
+                    </div>
                 </form>
-
-            <button id="add_btn">Add +</button>
+                
+         
         
             <div class="shelf">
                 <div class="shelf_top">
